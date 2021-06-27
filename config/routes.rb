@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    sessions: 'devise/sessions',
+    registrations: 'devise/registrations'
+  }
 
-    devise_for :users
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :books
-    resources :users,only:[:show,:edit,:update]
-    root 'layouts#top'
-    get 'users' => 'users#index'
-    get 'home/about' => 'layouts#about'
-    delete '/books' => 'books#destroy'
+  root "homes#top"
+
+  get "/home/about" => "homes#about"
+  resources :users
+  resources :books
 
 end
