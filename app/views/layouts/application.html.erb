@@ -13,13 +13,13 @@
   </head>
   <body>
     <header>
-      <nav class="nav navbar-expand-lg navbar-dark bg-dark" >
+      <nav class="navbar-expand-lg navbar-dark bg-dark" >
         <div class="container">
-          <a class="nav navbar-brand" href="/">
+          <a class="navbar-brand" href="/">
             <span class="title">Bookers</span>
           </a>
-          <div class="nav navbar-collapse collapse">
-            <ul class="nav navbar-nav ml-auto">
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
                   <%= link_to user_path(current_user), class:"btn btn-link text-light" do %>

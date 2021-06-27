@@ -6,8 +6,8 @@
       <%= render 'books/book', book: @newbook %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <h1>Book detail</h1>
-      <table class="table">
+      <h1>Books</h1>
+      <table class="table table-hover table-inverse">
         <tr>
           <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg"%></td>
           <td><%= link_to @user.name, user_path(@user) %></td>
