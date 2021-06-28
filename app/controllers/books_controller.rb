@@ -10,6 +10,7 @@ class BooksController < ApplicationController
         @newbook = Book.new
         @book = Book.find(params[:id])
         @user = @book.user
+        @book_comment = BookComment.new
     end
 
     def index
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
 		    redirect_to  book_path(@book.id)
         else
             @books = Book.all
-            flash[:notice] = ' errors prohibited this obj from being saved:'
+            flash[:notice] = "errors prohibited this obj from being saved:"
             render "index"
         end
     end
@@ -50,7 +51,7 @@ class BooksController < ApplicationController
 
         else
             @books = Book.all
-            flash[:notice]= ' errors prohibited this obj from being saved:'
+            flash[:notice]= "errors prohibited this obj from being saved:"
             render "edit"
         end
     end
@@ -58,7 +59,8 @@ class BooksController < ApplicationController
     def destroy
         @book = Book.find(params[:id])
         @book.destroy
-        redirect_to "/books"
+        flash[:notice]="Book was successfully destroyed."
+        redirect_to books_path
     end
 
 	private
